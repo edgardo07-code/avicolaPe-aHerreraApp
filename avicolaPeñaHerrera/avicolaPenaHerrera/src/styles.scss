@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    transition: .3s ease;
+}
+
+span {
+  font-size: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #002e51;
+  height: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9acdd5;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a4f700;
+}
+
+$colors: (
+  primary: #FF69EB,
+  secondary: #6c757d,
+  success: #bae85c,
+  danger: #FF6B6B,
+  warning: #FA7921,
+  info: #9acdd5,
+  brandOne: #002e51,
+  brandTwo: #41b3ec,
+  brandThree: #a4f700
+);
+
+
+$buttons: (
+  padding: 10px 20px,
+  border-radius: 5px,
+  font-size: 16px,
+  font-weight: bold,
+
+);
+
+$themes: (
+  light: (
+    textColor: #002e51,
+    bg: #FFFAFB,
+    logo: #002e51,
+    bgSoft: #f6f3f3,
+    bgnavSoft: linear-gradient(rgba(9, 61, 16, 0.9), rgba(5, 187, 60, 0.9)),
+    textColorSoft: #002e51,
+    border: map-get($colors, 'brandThree' ),
+    colors: $colors,
+    buttons: $buttons,
+  ),
+  dark: (
+    textColor: white,
+    bg: map-get($colors, 'brandOne' ),
+    logo: white,
+    bgSoft: linear-gradient(rgba(9, 61, 16, 0.5), rgba(5, 187, 60, 0.788)),
+    bgnavSoft: linear-gradient(rgba(9, 61, 16, 0.9), rgba(5, 187, 60, 0.9)),
+    textColorSoft: map-get($colors, 'brandOne' ),
+    border: white,
+    colors: $colors,
+    buttons: $buttons,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 960px) {
+    @content;
+  }
+}

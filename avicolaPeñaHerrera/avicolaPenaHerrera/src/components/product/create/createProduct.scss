@@ -1,0 +1,89 @@
+@import "../../../styles.scss"; // Asegúrate de ajustar la ruta según sea necesario
+
+.create-product {
+  @include themify($themes) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+      background-color: white; // Utiliza la variable del tema
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      color: themed('bgSoft'); 
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .product-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px; 
+
+      .form-label {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.6rem; 
+        color: themed('bgSoft');
+
+        .form-input {
+          height: 10px; 
+          padding: 10px;
+          color: themed('bgSoft');
+          border: 1px solid themed('bgSoft'); 
+          border-radius: 4px;
+          font-size: 16px;
+          box-sizing: border-box;
+          transition: border-color 0.3s;
+
+          &:focus {
+            border-color: themed('bgSoft'); 
+            outline: none;
+          }
+        } 
+        
+        .form-textarea {
+          padding: 10px;
+          border: 1px solid themed('bgSoft'); 
+          border-radius: 4px;
+          font-size: 16px;
+          box-sizing: border-box;
+          transition: border-color 0.3s;
+
+          resize: vertical;
+          min-height: 100px;
+        }
+      }
+
+      .form-button {
+        padding: 15px;
+        border: none;
+        background-color: map-get($colors , 'brandOne' ); 
+        color: white; 
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s, transform 0.2s;
+
+        &:hover {
+          background-color: darken($color: map-get($colors, 'brandTwo'), $amount: 10); 
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          background-color: themed('bg'); 
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}

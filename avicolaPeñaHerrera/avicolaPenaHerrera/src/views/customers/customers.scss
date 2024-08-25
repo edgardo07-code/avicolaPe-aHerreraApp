@@ -1,0 +1,121 @@
+@import '../../styles.scss'; // Ajusta la ruta si es necesario
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$background-color: #f5f5f5;
+$text-color: #333;
+$modal-bg: rgba(0, 0, 0, 0.5);
+
+.customers {
+  // Contenedor principal
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: $background-color; // Usa la variable del archivo global
+  min-height: 100vh;
+
+  .customer-container {
+    // Contenedor que envuelve el contenido de clientes
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      span {
+        font-size: 1.2em;
+        color: $text-color; // Usa la variable del archivo global
+        font-weight: bold;
+      }
+
+      .btn-add {
+        background-color: $primary-color; // Usa la variable del archivo global
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken($primary-color, 10%); // Usa la variable del archivo global
+        }
+      }
+    }
+
+    // Estilo para el mensaje de ausencia de datos
+    span {
+      color: $text-color; // Usa la variable del archivo global
+      font-size: 1em;
+      text-align: center;
+    }
+  }
+}
+
+// Estilos para el modal (esto asume que el modal tiene una clase `.modal`)
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $modal-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    
+    // Botón de cerrar modal
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: $text-color;
+
+      &:hover {
+        color: darken($text-color, 10%);
+      }
+    }
+  }
+}
+// Estilos responsivos
+@media (max-width: 768px) {
+  .customer-container {
+    padding: 10px;
+
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .btn-add {
+      width: 35px;
+      height: 35px;
+      font-size: 1.2em;
+    }
+  }
+}

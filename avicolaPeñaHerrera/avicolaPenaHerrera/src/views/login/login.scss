@@ -1,0 +1,166 @@
+.login {
+  height: 99.9vh;
+  padding: 8ch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5; /* Fondo más claro para contraste */
+
+  .card {
+    width: 80%;
+    max-width: 1200px; /* Límite máximo para el ancho de la tarjeta */
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para mejor contraste */
+    border-radius: 10px;
+    min-height: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    overflow: hidden;
+    position: relative;
+
+    .left {
+      position: relative;
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.3), 
+          rgba(0, 0, 0, 0.3)
+        ),
+        url("../../assets/plants.mp4") center center / cover no-repeat;
+
+      .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      .content {
+        z-index: 1;
+        text-align: center;
+        
+        h1 {
+          font-size: 3rem;
+          line-height: 1.2;
+          margin: 0;
+          font-weight: 700;
+        }
+
+        p {
+          font-size: 1.125rem;
+          margin: 20px 0;
+          color: white;
+        }
+
+        span {
+          font-size: 0.875rem;
+          display: block;
+          margin-top: 10px;
+        }
+
+        button {
+          width: 60%;
+          padding: 10px;
+          border: none;
+          background-color: rgba(21, 41, 71, 0.8);
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 20px;
+          border-radius: 5px; /* Añadir border-radius para botones */
+          transition: background-color 0.3s, transform 0.2s;
+
+          &:hover {
+            background-color: rgba(21, 41, 71, 1);
+            transform: translateY(-2px);
+          }
+
+          &:active {
+            background-color: rgba(21, 41, 71, 0.9);
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+    .right {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff; /* Fondo blanco para la sección de login */
+      border-left: 1px solid #ddd; /* Línea de separación */
+
+      h1 {
+        color: #022034;
+        text-align: center;
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 400px; /* Límite máximo para el ancho del formulario */
+        
+        input {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 16px;
+          width: 100%;
+          box-sizing: border-box;
+          transition: border-color 0.3s;
+
+          &:focus {
+            border-color: #153747;
+            outline: none;
+          }
+        }
+
+        .msg {
+          width: 100%;
+          text-align: center;
+          color: #e74c3c;
+          border: 1px solid #e74c3c;
+          border-radius: 5px;
+          padding: 10px;
+          font-size: 14px;
+          background-color: #f8d7da; /* Fondo ligero para mensajes de error */
+        }
+
+        button {
+          width: 100%;
+          padding: 15px;
+          border: none;
+          background-color: #153747;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 5px; /* Añadir border-radius para botones */
+          transition: background-color 0.3s, transform 0.2s;
+
+          &:hover {
+            background-color: #022034;
+            transform: translateY(-2px);
+          }
+
+          &:active {
+            background-color: #001a33;
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+}

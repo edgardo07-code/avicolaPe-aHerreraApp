@@ -1,0 +1,113 @@
+@import "../../styles.scss";
+
+.leftBar {
+  @include themify($themes) {
+    flex: 2;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+    background-color: themed('bg');
+    color: themed("textColor");
+    transform: translateX(-100%) scale(0.8); // Oculto y reducido por defecto
+    opacity: 0; // Oculto por defecto
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease; // Transiciones más suaves y modernas
+
+    &.visible {
+      transform: translateX(0) scale(1); // Visible y escala normal
+      opacity: 1; // Visible
+      position: sticky;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between; // Asegura que el contenido se distribuya entre la parte superior y la parte inferior
+
+      hr {
+        margin: 20px 0px;
+        border: none;
+        height: 0.5px;
+        background-color: themed("border");
+      }
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        span {
+          font-size: 12px;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+
+          img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          &:hover {
+            background-color: themed('textColor'); 
+            color: themed('bg');
+            transform: scale(1.05); 
+            padding: 0.3rem;
+            border-radius: 5px;
+          }
+          img {
+            width: 30px;
+          }
+
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .config {
+        margin-top: auto; // Empuja la sección de configuración hacia abajo
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer; // Indica que es interactivo
+        padding: 10px;
+        border-top: 1px solid themed("border");
+
+        .close-session {
+          &:hover {
+            background-color: themed('bgSoft'); // Color de fondo suave al hacer hover
+            transform: scale(1.05); // Ligeramente agrandar el ítem
+          }
+        }
+        
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@import '../../../styles.scss'; // Ajusta la ruta si es necesario
+
+.edit-customer-modal {
+  background-color: #fff; // Fondo blanco para el modal
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  
+  .edit-customer-content {
+    h2 {
+      font-size: 1.5em;
+      color: map-get($colors, 'textColor'); // Usa la variable del archivo global
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-size: 1em;
+        color: map-get($colors, 'textColor'); // Usa la variable del archivo global
+
+        input {
+          margin-top: 5px;
+          padding: 8px;
+          border: 1px solid map-get($colors, 'textColor'); // Usa la variable del archivo global
+          border-radius: 4px;
+          font-size: 1em;
+          color: map-get($colors, 'textColor'); // Usa la variable del archivo global
+        }
+      }
+
+      .edit-customer-buttons {
+        display: flex;
+        gap: 10px;
+
+        button {
+          background-color: map-get($colors, 'brandOne'); // Usa la variable del archivo global
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1em;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken(map-get($colors, 'brandTwo'), 10%); // Usa la variable del archivo global
+          }
+        }
+
+        .cancel-button {
+          background-color: #ccc;
+          color: map-get($colors, 'textColor'); // Usa la variable del archivo global
+
+          &:hover {
+            background-color: map-get($colors, 'textColor');
+          }
+        }
+      }
+    }
+  }
+}
+
+// Estilos para el botón de cerrar modal (si aplica)
+.edit-customer-modal .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: map-get($colors, 'textColor'); 
+
+  &:hover {
+    color: map-get($colors, 'textColor'); 
+  }
+}

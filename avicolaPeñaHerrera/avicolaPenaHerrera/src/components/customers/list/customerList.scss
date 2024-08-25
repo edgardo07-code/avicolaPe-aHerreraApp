@@ -1,0 +1,73 @@
+.customerList {
+  position: relative; // Permite al menú posicionarse correctamente en relación con este contenedor
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #333;
+
+    thead {
+      background-color: #f4f4f4;
+      color: #333;
+
+      th {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+
+    tbody {
+      tr {
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+
+        td {
+          padding: 10px;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    }
+  }
+
+  .config-customer-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: row; // Cambia la dirección de los ítems del menú a columna
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; // Asegura que el menú esté por encima de otros elementos
+
+    .menu-item {
+      display: flex;
+      align-items: center; // Centra verticalmente los ítems
+      justify-content: center; // Centra horizontalmente los ítems
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      background-color: #fff;
+      color: #333;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: #f4f4f4;
+      }
+
+      svg {
+        margin-right: 8px; // Espacio entre el icono y el texto
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@import "../../../styles.scss";
+
+.productList {
+  @include themify($themes) {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+      color: themed('textColor');
+      
+      thead {
+        background-color: themed('bgSoft');
+        color: themed('textColor');
+        
+        th {
+          padding: 10px;
+          text-align: left;
+          border-bottom: 1px solid themed('border');
+          
+          &:first-child {
+            border-top-left-radius: 5px;
+          }
+          
+          &:last-child {
+            border-top-right-radius: 5px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          transition: background-color 0.3s ease;
+          
+          &:hover {
+            background-color: themed('bgSoft');
+          }
+        }
+
+        td {
+          padding: 10px;
+          border-bottom: 1px solid themed('border');
+          
+          button {
+            background-color: themed('primary');
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            
+            &:hover {
+              background-color: themed('primary');
+            }
+          }
+        }
+      }
+    }
+  }
+}
